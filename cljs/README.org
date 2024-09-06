@@ -26,12 +26,13 @@ https://www.geeksforgeeks.org/creating-a-simple-image-editor-using-javascript/
  1. Penpot - https://github.com/penpot/penpot, for which ClojureScript
     is a perfect choice. It is designed to generate html, css and
     code, which we could use in our development to generate UI
-    elements. However, it is designed to model Web Pages thus it is
-    data model is closely related to DOM tree. I poked around its code
-    base and like what I saw especially, choice of libs, code
-    organization and test coverage, which we could take inspiration
-    from. From what I know so far, our data model will most likely be
-    very different than this.
+    elements. However, the tool is designed to model web pages, which
+    means that its data model is closely related to the Document
+    Object Model (DOM) tree. I poked around its code base and like
+    what I saw especially, choice of libs, code organization and test
+    coverage, which we could take inspiration from. From what I know
+    so far, our data model will most likely be very different than
+    this.
  2. Konva.js https://github.com/konvajs/konva, which is a JavaScript
     library that wraps HTML Canvas API and used in
     https://polotno.com/. This made me choose HTML canvas 2D API for

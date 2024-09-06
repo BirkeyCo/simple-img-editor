@@ -2,7 +2,7 @@ The HTML and CSS is stolen from:
 https://www.geeksforgeeks.org/creating-a-simple-image-editor-using-javascript/
 
 *NOTE* : I did read the JS code in the page but just could not bring
-myself to use it (Happy to talk about why). This JS version is done after
+myself to use it (happy to talk about why). This JS version is done after
 I finished the ClojureScript version.
 
 * Rationale
