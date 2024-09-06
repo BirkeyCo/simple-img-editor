@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>Simple Image Editor</title>
+    <link rel="stylesheet" href=
+          "https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href=
+          "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    
+    <!-- Import custom stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script defer src=
+            "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+  </head>
+
+  <body>
+    <nav class="green">
+      <div class="nav-wrapper container">
+        <span class="nav-header">
+          Simple Image Editor
+        </span>
+        <ul class="right image-save">
+          <button class="btn btn-flat blue white-text"
+                  onclick="sie.core.save_image()">
+            Save
+          </button>
+          <button class="btn btn-flat red white-text"
+                  onclick="sie.core.reset_image()">
+            Reset
+          </button>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hidden image that will be used for
+         holding the source image -->
+    <img id="sourceImage" crossorigin="anonymous">
+
+    <div class="image-preview">
+
+      <!-- Canvas that will hold the 
+           image to be edited -->
+      <canvas id="canvas" height="0"></canvas>
+    </div>
+    <div class="container app">
+
+      <!-- Text to be shown at the beginning
+           of the application -->
+      <div class="help-text center-align">
+        <h5>Please Upload an Image to Start Editing</h5>
+      </div>
+
+      <!-- All the image controls that will be
+           used for modifying the image -->
+      <div class="image-controls">
+        <h6>Image Controls</h6>
+        <div class="row">
+          <div class="col s6">
+            <span class="range-field">
+              <label for="brightnessSlider">
+                Brightness
+              </label>
+              <input id="brightnessSlider"
+                     type="range" value="100"
+                     min="0" max="300" 
+                     onchange="sie.core.handle_slider(event)">
+            </span>
+          </div>
+          <div class="col s6">
+            <span class="range-field">
+              <label for="contrastSlider">
+                Contrast
+              </label>
+              <input id="contrastSlider"
+                     type="range" value="100"
+                     min="0" max="200" 
+                     onchange="sie.core.handle_slider(event)">
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">
+            <span class="range-field">
+              <label for="grayscaleSlider">
+                Grayscale
+              </label>
+              <input id="grayscaleSlider" 
+                     type="range" value="0"
+                     min="0" max="100" 
+                     onchange="sie.core.handle_slider(event)">
+            </span>
+          </div>
+          <div class="col s6">
+            <span class="range-field">
+              <label for="saturationSlider">
+                Saturation
+              </label>
+              <input id="saturationSlider"
+                     type="range" value="100"
+                     min="0" max="300"
+                     onchange="sie.core.handle_slider(event)">
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s6">
+            <span class="range-field">
+              <label for="sepiaSlider">
+                Sepia
+              </label>
+              <input id="sepiaSlider" 
+                     type="range" value="0" 
+                     min="0" max="200" 
+                     onchange="sie.core.handle_slider(event)">
+            </span>
+          </div>
+          <div class="col s6">
+            <span class="range-field">
+              <label for="hueRotateSlider">
+                Hue
+              </label>
+              <input id="hueRotateSlider"
+                     type="range" value="0"
+                     min="0" max="360"
+                     onchange="sie.core.handle_slider(event)">
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons that will be used to change
+           the values to preset ones -->
+      <div class="preset-filters">
+        <h6>Preset Transformers</h6>
+        <button class="btn green" 
+                onclick="sie.core.brighten()">
+          Brighten
+        </button>
+        <button class="btn green" 
+                onclick="sie.core.black_white()">
+          Black and White
+        </button>
+        <button class="btn green"
+                onclick="sie.core.funky()">
+          Funky
+        </button>
+        <button class="btn green" 
+                onclick="sie.core.vintage()">
+          Vintage
+        </button>
+
+        <button class="btn green" 
+                onclick="sie.core.rotate_image(90)">
+          Rotate 90 &#176
+        </button>
+
+        <button class="btn green" 
+                onclick="sie.core.rotate_image(180)">
+          Rotate 180 &#176
+        </button>
+        
+        <button class="btn green" 
+                onclick="sie.core.reset_image()">
+          &#8634;
+        </button>
+        
+      </div>
+
+      <!-- File control to upload a new file -->
+      <div class="file-controls">
+        
+        <!-- Element that will be later used to download
+             the canvas image from code -->
+        <a id="link"></a>
+        
+        <!-- File Selector for uploading the image -->
+        <div class="file-field input-field">
+          <div class="btn green">
+            <span>Upload Image</span>
+            <input type="file" accept="image/*"
+                   onchange="sie.core.upload_image(event)">
+          </div>
+          <div class="file-path-wrapper">
+            <input class="file-path" type="text">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Load the script for the editor -->
+    <script src="out/main.js"></script>
+  </body>
+
+</html>

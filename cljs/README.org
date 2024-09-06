@@ -1,0 +1,51 @@
+The HTML and CSS is stolen from:
+https://www.geeksforgeeks.org/creating-a-simple-image-editor-using-javascript/
+
+* Rationale
+ 1. So I start from first principle of what it takes to do an
+    image editor with pure ClojureScript on top of JavaScript
+ 2. So I have a baseline for everything, code complexity, performance,
+    and limitation
+ 3. So I can build up the abstractions to compare gains versus losses
+    if I am to use various image manipulation APIs (HTML renderer,
+    SVG, Canvas 2D or Canvas WebGL API), third party libs, and other tooling
+
+* ClojureScript Advantage
+ 1. Provides great feedback loop (REPL driven exploration)
+ 2. Provides tools/lib (not frameworks) to manage complexities such as
+    state, data flow and code organizations
+ 3. Getting more done with less code
+ 4. Stable language core with great extension support via macros
+
+* ClojureScript Disadvantage
+ 1. Compilation time can be slow if not careful
+ 2. Steep Learning curve
+ 3. Small ecosystem
+
+* Open Source References
+ 1. Penpot - https://github.com/penpot/penpot, for which ClojureScript
+    is a perfect choice. It is designed to generate html, css and
+    code, which we could use in our development to generate UI
+    elements. However, it is designed to model Web Pages thus it is
+    data model is closely related to DOM tree. I poked around its code
+    base and like what I saw especially, choice of libs, code
+    organization and test coverage, which we could take inspiration
+    from. From what I know so far, our data model will most likely be
+    very different than this.
+ 2. Konva.js https://github.com/konvajs/konva, which is a JavaScript
+    library that wraps HTML Canvas API and used in
+    https://polotno.com/. This made me choose HTML canvas 2D API for
+    this prototype.
+
+* To run and develop
+- Run: `clj -M --main cljs.main --watch src --compile sie.core` in a terminal
+- Run: `nix-shell -p live-server` from within this directory if you
+  happen to use nix
+*Note* : live-server is a http server with live reload feature for
+static pages, which I happen to use my local blog editing before
+publishing it to Github pages.
+
+Then, you can change cljs code to use it in manipulating images on the
+html page. Say, you want to add crop image feature, you can write cljs
+function `crop` and wire it in the index.html page, which will be live
+once the code and wiring is its place without the restart of the http server.

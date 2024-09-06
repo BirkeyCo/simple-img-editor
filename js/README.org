@@ -1,0 +1,36 @@
+The HTML and CSS is stolen from:
+https://www.geeksforgeeks.org/creating-a-simple-image-editor-using-javascript/
+
+*NOTE* : I did read the JS code in the page but just could not bring
+myself to use it (Happy to talk about why). This JS version is done after
+I finished the ClojureScript version.
+
+* Rationale
+ 1. So I start from first principle of what it takes to do an
+    image editor with just pure JavaScript
+ 2. So I have a baseline for everything, code complexity, performance,
+    and limitation
+ 3. So I can always have a JS playground to experiment with state of
+    the art browser support for image manipulation
+ 
+* JavaScript Advantage
+ 1. First class citizen on the browser
+ 2. Huge ecosystem (could be curse instead of blessing)
+ 3. Can't speak for other advantages since I am no expert on it though I
+    am dangerous to use its good parts to get things done
+
+* JavaScript Disadvantage
+ 1. Poor support for feedback loop
+ 2. Poor support for managing state, events and code organizations
+ 3. Explosion of dependencies and frameworks that becomes obsolete in
+    short period of time
+ 
+* To run and develop
+- Run: `nix-shell -p live-server` from within this directory if you
+  happen to use nix
+*Note* : live-server is a http server with live reload feature for
+static pages, which I happen to use my local blog editing before
+publishing it to Github pages.
+
+Then, write JavaScript code and wire it in the index.html, which will
+be reloaded automatically without the restart of the http server.
