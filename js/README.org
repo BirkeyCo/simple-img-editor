@@ -9,7 +9,7 @@ I finished the ClojureScript version.
  1. So I start from first principle of what it takes to do an
     image editor with just pure JavaScript
  2. So I have a baseline for everything, code complexity, performance,
-    and limitation
+    and limitation without cljs overhead
  3. So I can always have a JS playground to experiment with state of
     the art browser support for image manipulation
  
@@ -17,7 +17,7 @@ I finished the ClojureScript version.
  1. First class citizen on the browser
  2. Huge ecosystem (could be curse instead of blessing)
  3. Can't speak for other advantages since I am no expert on it though I
-    am dangerous to use its good parts to get things done
+    am dangerous enough to get things done with its good parts
 
 * JavaScript Disadvantage
  1. Poor support for feedback loop
